@@ -1,0 +1,17 @@
+ramanujan@ramanujan-HLBS-CM-44:~$ mkdir nginx-html
+mkdir: cannot create directory ‘nginx-html’: File exists
+ramanujan@ramanujan-HLBS-CM-44:~$ cd nginx-html
+ramanujan@ramanujan-HLBS-CM-44:~/nginx-html$ touch index.html
+ramanujan@ramanujan-HLBS-CM-44:~/nginx-html$ touch about.html
+ramanujan@ramanujan-HLBS-CM-44:~/nginx-html$ code .
+ramanujan@ramanujan-HLBS-CM-44:~/nginx-html$ docker run -d -p 8000:80 -v /nginx-html:/usr/share/nginx/html --name my-mginx nginx
+52c7bf51655be22bb8125d916385826913250f28eb52ba52a70ed60abe331a28
+ramanujan@ramanujan-HLBS-CM-44:~/nginx-html$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                   NAMES
+52c7bf51655b   nginx     "/docker-entrypoint.…"   15 seconds ago   Up 14 seconds   0.0.0.0:8000->80/tcp, :::8000->80/tcp   my-mginx
+
+ramanujan@ramanujan-HLBS-CM-44:~/nginx-html$ docker run -d -p 8000:80 -v ~/nginx-html:/usr/share/nginx/html --name my-mginx nginx
+51c3194905f189d23691fd7972991fafec5467649be0cca645714e182eae5934
+ramanujan@ramanujan-HLBS-CM-44:~/nginx-html$ 
+
+
