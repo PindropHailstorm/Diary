@@ -5,3 +5,8 @@ Memory Management in Python. Data segment. Deepmind, Google-> New methods of les
 3. Automatic Memory Management: Automatic Reference Counting, Object Finalization and Garbage Collection 
 4. Manual Memory Management: Memory Allocation and Deallocation 
 5. Conclusion: Summarize the importance of Memory Management in Python
+
+https://www.geeksforgeeks.org/memory-management-in-python/
+https://www.askpython.com/python/examples/memory-management-in-python
+https://wearecommunity.io/communities/tectoniques/articles/978
+https://scoutapm.com/blog/python-memory-management
