@@ -1,0 +1,7 @@
+Keywords:
+Memory Management in Python. Data segment. Deepmind, Google-> New methods of less computation intensive matrix multiplication.
+1. Introduction: Definition of Memory Management and its importance in Python 
+2. Types of Memory Management in Python: Reference counting, Garbage Collection and Manual Memory Management 
+3. Automatic Memory Management: Automatic Reference Counting, Object Finalization and Garbage Collection 
+4. Manual Memory Management: Memory Allocation and Deallocation 
+5. Conclusion: Summarize the importance of Memory Management in Python
