@@ -1,0 +1,8 @@
+INP
+STA 10
+HLT
+
+.data 4 00
+
+
+
