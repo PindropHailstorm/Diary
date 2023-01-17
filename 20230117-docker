@@ -1,0 +1,765 @@
+ramanujan@ramanujan-HLBS-CM-44:~$ docker run
+"docker run" requires at least 1 argument.
+See 'docker run --help'.
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Run a command in a new container
+ramanujan@ramanujan-HLBS-CM-44:~$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+nginx         latest    1403e55ab369   3 weeks ago     142MB
+httpd         latest    73c10eb9266e   3 weeks ago     145MB
+ubuntu        latest    6b7dfa7e8fdb   5 weeks ago     77.8MB
+hello-world   latest    feb5d9fea6a5   16 months ago   13.3kB
+ramanujan@ramanujan-HLBS-CM-44:~$ docker clear
+docker: 'clear' is not a docker command.
+See 'docker --help'
+ramanujan@ramanujan-HLBS-CM-44:~$ docker pull alpine
+Using default tag: latest
+dplatest: Pulling from library/alpine
+8921db27df28: Pull complete 
+Digest: sha256:f271e74b17ced29b915d351685fd4644785c6d1559dd1f2d4189a5e851ef753a
+Status: Downloaded newer image for alpine:latest
+docker.io/library/alpine:latest
+ramanujan@ramanujan-HLBS-CM-44:~$ docker run alpine
+ramanujan@ramanujan-HLBS-CM-44:~$ docker run alpine echo "Hello from Alpine!"
+Hello from Alpine!
+ramanujan@ramanujan-HLBS-CM-44:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+ramanujan@ramanujan-HLBS-CM-44:~$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+alpine        latest    042a816809aa   7 days ago      7.05MB
+nginx         latest    1403e55ab369   3 weeks ago     142MB
+httpd         latest    73c10eb9266e   3 weeks ago     145MB
+ubuntu        latest    6b7dfa7e8fdb   5 weeks ago     77.8MB
+hello-world   latest    feb5d9fea6a5   16 months ago   13.3kB
+ramanujan@ramanujan-HLBS-CM-44:~$ IS
+IS: command not found
+ramanujan@ramanujan-HLBS-CM-44:~$ is
+Command 'is' not found, but can be installed with:
+sudo apt install ironseed
+ramanujan@ramanujan-HLBS-CM-44:~$ Is
+Is: command not found
+ramanujan@ramanujan-HLBS-CM-44:~$ ls
+anaconda3  Desktop  Documents  Downloads  get-docker.sh  html-html  Music  nginx-html  Pictures  Public  snap  Templates  Videos
+ramanujan@ramanujan-HLBS-CM-44:~$ mkdir docker1701
+ramanujan@ramanujan-HLBS-CM-44:~$ cd docker1701
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ vim dockerfile
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ vim dockerfile
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ vim dockerfile
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ docker build -t mye
+"docker build" requires exactly 1 argument.
+See 'docker build --help'.
+
+Usage:  docker build [OPTIONS] PATH | URL | -
+
+Build an image from a Dockerfile
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ docker build -t shark .
+Sending build context to Docker daemon  2.048kB
+Step 1/6 : FROM ruby:alpine
+alpine: Pulling from library/ruby
+8921db27df28: Already exists 
+3a42b0282dbb: Pull complete 
+0ad130fc941d: Pull complete 
+6d6631569d37: Pull complete 
+72e95d6391e8: Pull complete 
+Digest: sha256:c690d3b45ef65e0098104c272f1736b0595b824908d5639c3a3d17636581a905
+Status: Downloaded newer image for ruby:alpine
+ ---> b044f52438b7
+Step 2/6 : WORKDIR /docker1701
+ ---> Running in a466b9c29520
+Removing intermediate container a466b9c29520
+ ---> a8a1b84c01a7
+Step 3/6 : EXPOSE 4000
+ ---> Running in 9834a91b4022
+Removing intermediate container 9834a91b4022
+ ---> e8f21b77a7dd
+Step 4/6 : RUN apk add --no-cache bash wget
+ ---> Running in 86892051e9e8
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/main/x86_64/APKINDEX.tar.gz
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.17/community/x86_64/APKINDEX.tar.gz
+(1/5) Installing bash (5.2.15-r0)
+Executing bash-5.2.15-r0.post-install
+(2/5) Installing libunistring (1.1-r0)
+(3/5) Installing libidn2 (2.3.4-r0)
+(4/5) Installing pcre2 (10.42-r0)
+(5/5) Installing wget (1.21.3-r2)
+Executing busybox-1.35.0-r29.trigger
+OK: 27 MiB in 41 packages
+Removing intermediate container 86892051e9e8
+ ---> 4ea352f60b4b
+Step 5/6 : RUN wget https://media.giphy.com/media/4a7u0GC5hzdgk/giphy.gif -O shark.gif
+ ---> Running in a3a22610d8bb
+--2023-01-17 05:10:33--  https://media.giphy.com/media/4a7u0GC5hzdgk/giphy.gif
+Resolving media.giphy.com (media.giphy.com)... 199.232.194.2, 199.232.198.2
+Connecting to media.giphy.com (media.giphy.com)|199.232.194.2|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 484053 (473K) [image/gif]
+Saving to: 'shark.gif'
+
+     0K .......... .......... .......... .......... .......... 10%  178K 2s
+    50K .......... .......... .......... .......... .......... 21%  249K 2s
+   100K .......... .......... .......... .......... .......... 31%  867K 1s
+   150K .......... .......... .......... .......... .......... 42% 1.04M 1s
+   200K .......... .......... .......... .......... .......... 52%  383K 1s
+   250K .......... .......... .......... .......... .......... 63% 1.37M 0s
+   300K .......... .......... .......... .......... .......... 74% 1.64M 0s
+   350K .......... .......... .......... .......... .......... 84% 1.57M 0s
+   400K .......... .......... .......... .......... .......... 95% 2.14M 0s
+   450K .......... .......... ..                              100% 3.10M=0.8s
+
+2023-01-17 05:10:35 (560 KB/s) - 'shark.gif' saved [484053/484053]
+
+Removing intermediate container a3a22610d8bb
+ ---> 4bd8332496c5
+Step 6/6 : CMD ruby -run -e httpd . -p 4000
+ ---> Running in 80cf547646e8
+Removing intermediate container 80cf547646e8
+ ---> 48079ff10b33
+Successfully built 48079ff10b33
+Successfully tagged shark:latest
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ docker run shark
+webrick is not found. You may need to `gem install webrick` to install webrick.
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED              SIZE
+shark         latest    48079ff10b33   About a minute ago   78.9MB
+ruby          alpine    b044f52438b7   3 days ago           73.9MB
+alpine        latest    042a816809aa   7 days ago           7.05MB
+nginx         latest    1403e55ab369   3 weeks ago          142MB
+httpd         latest    73c10eb9266e   3 weeks ago          145MB
+ubuntu        latest    6b7dfa7e8fdb   5 weeks ago          77.8MB
+hello-world   latest    feb5d9fea6a5   16 months ago        13.3kB
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ docker run^C
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ docker run 48079ff10b33
+webrick is not found. You may need to `gem install webrick` to install webrick.
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ $ docker run -i -t -p 4242:4000 48079ff10b33
+$: command not found
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ docker run -i -t -p 9090:4000 48079ff10b33   
+webrick is not found. You may need to `gem install webrick` to install webrick.
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ gem install webrick
+Command 'gem' not found, but can be installed with:
+sudo snap install ruby           # version 3.1.3, or
+sudo apt  install ruby-rubygems  # version 3.3.5-2
+See 'snap info ruby' for additional versions.
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ cd .
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ cd
+ramanujan@ramanujan-HLBS-CM-44:~$ sudo apt install ruby-rubygems
+[sudo] password for ramanujan: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  bridge-utils ubuntu-fan
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  fonts-lato javascript-common libjs-jquery libruby3.0 rake ruby ruby-net-telnet ruby-webrick
+  ruby-xmlrpc ruby3.0 rubygems-integration
+Suggested packages:
+  apache2 | lighttpd | httpd ri ruby-dev bundler
+The following NEW packages will be installed:
+  fonts-lato javascript-common libjs-jquery libruby3.0 rake ruby ruby-net-telnet ruby-rubygems
+  ruby-webrick ruby-xmlrpc ruby3.0 rubygems-integration
+0 upgraded, 12 newly installed, 0 to remove and 166 not upgraded.
+Need to get 8,577 kB of archives.
+After this operation, 37.8 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 fonts-lato all 2.0-2.1 [2,696 kB]
+Get:2 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 javascript-common all 11+nmu1 [5,936 B]
+Get:3 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 libjs-jquery all 3.6.0+dfsg+~3.5.13-1 [321 kB]
+Get:4 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 rubygems-integration all 1.18 [5,336 B]
+Get:5 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 ruby3.0 amd64 3.0.2-7ubuntu2.2 [50.1 kB]
+Get:6 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 ruby-rubygems all 3.3.5-2 [228 kB]
+Get:7 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 ruby amd64 1:3.0~exp1 [5,100 B]
+Get:8 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 rake all 13.0.6-2 [61.7 kB]
+Get:9 http://in.archive.ubuntu.com/ubuntu jammy/main amd64 ruby-net-telnet all 0.1.1-2 [12.6 kB]
+Get:10 http://in.archive.ubuntu.com/ubuntu jammy/universe amd64 ruby-webrick all 1.7.0-3 [51.8 kB]
+Get:11 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 ruby-xmlrpc all 0.3.2-1ubuntu0.1 [24.9 kB]
+Get:12 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libruby3.0 amd64 3.0.2-7ubuntu2.2 [5,114 kB]
+Fetched 8,577 kB in 5s (1,826 kB/s)      
+Selecting previously unselected package fonts-lato.
+(Reading database ... 204985 files and directories currently installed.)
+Preparing to unpack .../00-fonts-lato_2.0-2.1_all.deb ...
+Unpacking fonts-lato (2.0-2.1) ...
+Selecting previously unselected package javascript-common.
+Preparing to unpack .../01-javascript-common_11+nmu1_all.deb ...
+Unpacking javascript-common (11+nmu1) ...
+Selecting previously unselected package libjs-jquery.
+Preparing to unpack .../02-libjs-jquery_3.6.0+dfsg+~3.5.13-1_all.deb ...
+Unpacking libjs-jquery (3.6.0+dfsg+~3.5.13-1) ...
+Selecting previously unselected package rubygems-integration.
+Preparing to unpack .../03-rubygems-integration_1.18_all.deb ...
+Unpacking rubygems-integration (1.18) ...
+Selecting previously unselected package ruby3.0.
+Preparing to unpack .../04-ruby3.0_3.0.2-7ubuntu2.2_amd64.deb ...
+Unpacking ruby3.0 (3.0.2-7ubuntu2.2) ...
+Selecting previously unselected package ruby-rubygems.
+Preparing to unpack .../05-ruby-rubygems_3.3.5-2_all.deb ...
+Unpacking ruby-rubygems (3.3.5-2) ...
+Selecting previously unselected package ruby.
+Preparing to unpack .../06-ruby_1%3a3.0~exp1_amd64.deb ...
+Unpacking ruby (1:3.0~exp1) ...
+Selecting previously unselected package rake.
+Preparing to unpack .../07-rake_13.0.6-2_all.deb ...
+Unpacking rake (13.0.6-2) ...
+Selecting previously unselected package ruby-net-telnet.
+Preparing to unpack .../08-ruby-net-telnet_0.1.1-2_all.deb ...
+Unpacking ruby-net-telnet (0.1.1-2) ...
+Selecting previously unselected package ruby-webrick.
+Preparing to unpack .../09-ruby-webrick_1.7.0-3_all.deb ...
+Unpacking ruby-webrick (1.7.0-3) ...
+Selecting previously unselected package ruby-xmlrpc.
+Preparing to unpack .../10-ruby-xmlrpc_0.3.2-1ubuntu0.1_all.deb ...
+Unpacking ruby-xmlrpc (0.3.2-1ubuntu0.1) ...
+Selecting previously unselected package libruby3.0:amd64.
+Preparing to unpack .../11-libruby3.0_3.0.2-7ubuntu2.2_amd64.deb ...
+Unpacking libruby3.0:amd64 (3.0.2-7ubuntu2.2) ...
+Setting up javascript-common (11+nmu1) ...
+Setting up fonts-lato (2.0-2.1) ...
+Setting up rubygems-integration (1.18) ...
+Setting up ruby-net-telnet (0.1.1-2) ...
+Setting up ruby-webrick (1.7.0-3) ...
+Setting up libjs-jquery (3.6.0+dfsg+~3.5.13-1) ...
+Setting up ruby-xmlrpc (0.3.2-1ubuntu0.1) ...
+Setting up rake (13.0.6-2) ...
+Setting up libruby3.0:amd64 (3.0.2-7ubuntu2.2) ...
+Setting up ruby3.0 (3.0.2-7ubuntu2.2) ...
+Setting up ruby (1:3.0~exp1) ...
+Setting up ruby-rubygems (3.3.5-2) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for fontconfig (2.13.1-4.2ubuntu5) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
+ramanujan@ramanujan-HLBS-CM-44:~$ cd^C
+ramanujan@ramanujan-HLBS-CM-44:~$ docker run -i -t -p 9090:4000 shark          
+webrick is not found. You may need to `gem install webrick` to install webrick.
+ramanujan@ramanujan-HLBS-CM-44:~$ gem install webrick
+Fetching webrick-1.7.0.gem
+ERROR:  While executing gem ... (Gem::FilePermissionError)
+    You don't have write permissions for the /var/lib/gems/3.0.0 directory.
+ramanujan@ramanujan-HLBS-CM-44:~$ sudo gem install webrick
+Fetching webrick-1.7.0.gem
+Successfully installed webrick-1.7.0
+Parsing documentation for webrick-1.7.0
+Installing ri documentation for webrick-1.7.0
+Done installing documentation for webrick after 0 seconds
+1 gem installed
+ramanujan@ramanujan-HLBS-CM-44:~$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED          SIZE
+shark         latest    48079ff10b33   14 minutes ago   78.9MB
+ruby          alpine    b044f52438b7   3 days ago       73.9MB
+alpine        latest    042a816809aa   7 days ago       7.05MB
+nginx         latest    1403e55ab369   3 weeks ago      142MB
+httpd         latest    73c10eb9266e   3 weeks ago      145MB
+ubuntu        latest    6b7dfa7e8fdb   5 weeks ago      77.8MB
+hello-world   latest    feb5d9fea6a5   16 months ago    13.3kB
+ramanujan@ramanujan-HLBS-CM-44:~$ docker run -i -t -p 4242:4000 shark
+webrick is not found. You may need to `gem install webrick` to install webrick.
+ramanujan@ramanujan-HLBS-CM-44:~$ docker run -i -t -p 4242:4000 shark
+webrick is not found. You may need to `gem install webrick` to install webrick.
+ramanujan@ramanujan-HLBS-CM-44:~$ 
+ramanujan@ramanujan-HLBS-CM-44:~$ history
+    1  sudo apt-get update
+    2  cd /tmp~
+    3  cd /tmp
+    4  curl https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh --output anaconda.sh
+    5  sudo snap install curl
+    6  sha256sum anaconda.sh
+    7  ls
+    8  cd ..
+    9  ls
+   10  cd/
+   11  ls\
+   12  cd home
+   13  ls
+   14  cd ramanujan/
+   15  ls
+   16  cd Downloads/
+   17  ls
+   18  sha256sum Anaconda3-2022.10-Linux-x86_64.sh 
+   19  bash Anaconda3-2022.10-Linux-x86_64.sh 
+   20  sudo apt-get install flex bison~
+   21  sudo apt-get install flex bison
+   22  sudo apt-get install bison
+   23  sudo apt-get install dosbox
+   24  sudo apt install docker.io
+   25  sudo su
+   26  docker run image
+   27  sudo apt install apache 2
+   28   sudo apt-get remove docker docker-engine docker.io containerd runc
+   29  udo apt-get update
+   30  sudo mkdir -p /etc/apt/keyrings
+   31  echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+   32    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   33  udo apt-get update
+   34  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+   35  sudo docker run hello-world
+   36  sudo dpkg -i ./containerd.io_<version>_<arch>.deb   ./docker-ce_<version>_<arch>.deb   ./docker-ce-cli_<version>_<arch>.deb   ./docker-compose-plugin_<version>_<arch>.deb
+   37  sudo docker run hello-world
+   38  curl -fsSL https://get.docker.com -o get-docker.sh
+   39  sudo docker run hello-world
+   40  docker images
+   41  docker daemon
+   42  daemon
+   43  sudo apt install daemon
+   44  sudo docker images
+   45  curl -fsSL https://get.docker.com -o get-docker.sh
+   46  sh get-docker.sh
+   47  sh install.sh
+   48  make shellcheck
+   49  sudo apt install shellcheck
+   50  sh install.sh
+   51  dockerhub
+   52  docker pull httpd
+   53  sudo apt update
+   54  sudo apt install -y     apt-transport-https     ca-certificates     curl     gnupg     lsb-release     jq
+   55  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+   56  sudo apt update
+   57  sudo apt install -y docker-ce docker-ce-cli containerd.io
+   58  sudo usermod -aG docker $USER
+   59  sudo chmod +x /usr/local/bin/docker-compose
+   60  echo   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+   61    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   62  sudo apt update
+   63  sudo apt install -y docker-ce docker-ce-cli containerd.io
+   64  sudo usermod -aG docker $USER
+   65  COMPOSE_VERSION=$(curl -s "https://api.github.com/repos/docker/compose/tags" | jq -r '.[0].name')
+   66  sudo curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)"   -o /usr/local/bin/docker-compose
+   67  sudo chmod +x /usr/local/bin/docker-compose
+   68  docker pull httpd
+   69  docker ps
+   70  sudo su
+   71  docker run IMAGE
+   72  docker run image
+   73  sudo docker run hello.world
+   74  sudo su
+   75  o su
+   76  sudo su
+   77  docker run nginx
+   78  docker pull nginx
+   79  docker run nginx
+   80  docker ps
+   81  docker tsop
+   82  docker stop nginx
+   83  docker sto -it inginx bash
+   84  docker stop -it inginx bash
+   85  docker ps
+   86  docker exec -it 9e3fffc0c830 bash
+   87  mkdir nginx-html
+   88  cd nginx-html
+   89  touch index.html
+   90  touch about.html
+   91  code .
+   92  docker run -d -p 8000:80 -v ~/html-html:/usr/share/nginx/html --name my-mginx nginx
+   93  docker exec -it 9e3fffc0c830 bash
+   94  docker rm 9e3fffc0c830
+   95  docker stop 9e3fffc0c830
+   96  docker rm 9e3fffc0c830
+   97  docker ps -a
+   98  docker ps
+   99  docker rm d137fe3ab343
+  100  docker stop bb172146d82f
+  101  docker rm bb172146d82f
+  102  docker ps -a
+  103  docker rm 1ccdd8f06f8e
+  104  docker ps
+  105  docker rm 1ccdd8f06f8e
+  106  docker ps
+  107  docker ps -a
+  108  docker rm 943316aaee9d
+  109  docker ps -a
+  110  docker run -d -p 8000:80 -v ~/html-html:/usr/share/nginx/html --name my-mginx nginx
+  111  docker ps -a
+  112  clear
+  113  docker ps
+  114  docker stop 7cceed035063
+  115  docker rm 7cceed035063
+  116  docker run -d -p 8000:80 -v ~/nginx-html:/usr/share/nginx/html --name my-nginx nginx
+  117  docker ps
+  118  sudo su
+  119  exit
+  120  docker ps
+  121  sudo su
+  122  docker run
+  123  docker images
+  124  docker clear
+  125  docker pull alpine
+  126  docker run alpine
+  127  docker run alpine echo "Hello from Alpine!"
+  128  docker ps
+  129  docker images
+  130  IS
+  131  is
+  132  Is
+  133  ls
+  134  mkdir docker1701
+  135  cd docker1701
+  136  vim dockerfile
+  137  docker build -t mye
+  138  docker build -t shark .
+  139  docker run shark
+  140  docker images
+  141  docker run 48079ff10b33
+  142  $ docker run -i -t -p 4242:4000 48079ff10b33
+  143  docker run -i -t -p 9090:4000 48079ff10b33
+  144  gem install webrick
+  145  cd .
+  146  cd
+  147  sudo apt install ruby-rubygems
+  148  docker run -i -t -p 9090:4000 shark
+  149  gem install webrick
+  150  sudo gem install webrick
+  151  docker images
+  152  docker run -i -t -p 4242:4000 shark
+  153  history
+ramanujan@ramanujan-HLBS-CM-44:~$ ls
+anaconda3  docker1701  Downloads      html-html  nginx-html  Public  Templates
+Desktop    Documents   get-docker.sh  Music      Pictures    snap    Videos
+ramanujan@ramanujan-HLBS-CM-44:~$ cat docker1701/
+cat: docker1701/: Is a directory
+ramanujan@ramanujan-HLBS-CM-44:~$ cd docker1701/
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ ;s
+bash: syntax error near unexpected token `;'
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ ls
+dockerfile
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ cat dockerfile 
+FROM ruby:alpine
+WORKDIR /docker1701
+
+EXPOSE 4000
+
+RUN apk add --no-cache bash wget
+RUN wget https://media.giphy.com/media/4a7u0GC5hzdgk/giphy.gif -O shark.gif
+CMD ruby -run -e httpd . -p 4000
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ docker build -t cultivate/shark 
+"docker build" requires exactly 1 argument.
+See 'docker build --help'.
+
+Usage:  docker build [OPTIONS] PATH | URL | -
+
+Build an image from a Dockerfile
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ docker build -t cultivate/shark .
+Sending build context to Docker daemon  2.048kB
+Step 1/6 : FROM ruby:alpine
+ ---> b044f52438b7
+Step 2/6 : WORKDIR /docker1701
+ ---> Using cache
+ ---> a8a1b84c01a7
+Step 3/6 : EXPOSE 4000
+ ---> Using cache
+ ---> e8f21b77a7dd
+Step 4/6 : RUN apk add --no-cache bash wget
+ ---> Using cache
+ ---> 4ea352f60b4b
+Step 5/6 : RUN wget https://media.giphy.com/media/4a7u0GC5hzdgk/giphy.gif -O shark.gif
+ ---> Using cache
+ ---> 4bd8332496c5
+Step 6/6 : CMD ruby -run -e httpd . -p 4000
+ ---> Using cache
+ ---> 48079ff10b33
+Successfully built 48079ff10b33
+Successfully tagged cultivate/shark:latest
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ docker run -i -t -p 4242:4000 cultivate/shark
+^[[3~^[[3~webrick is not found. You may need to `gem install webrick` to install webrick.
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ docker images
+REPOSITORY        TAG       IMAGE ID       CREATED          SIZE
+cultivate/shark   latest    48079ff10b33   19 minutes ago   78.9MB
+shark             latest    48079ff10b33   19 minutes ago   78.9MB
+ruby              alpine    b044f52438b7   3 days ago       73.9MB
+alpine            latest    042a816809aa   7 days ago       7.05MB
+nginx             latest    1403e55ab369   3 weeks ago      142MB
+httpd             latest    73c10eb9266e   3 weeks ago      145MB
+ubuntu            latest    6b7dfa7e8fdb   5 weeks ago      77.8MB
+hello-world       latest    feb5d9fea6a5   16 months ago    13.3kB
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ apt install webrick
+\E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ sudo apt install webrick
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package webrick
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ gem install webrick
+ERROR:  While executing gem ... (Gem::FilePermissionError)
+    You don't have write permissions for the /var/lib/gems/3.0.0 directory.
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ sudo \gem install webrick
+Successfully installed webrick-1.7.0
+Parsing documentation for webrick-1.7.0
+Done installing documentation for webrick after 0 seconds
+1 gem installed
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ sudo gem install webrick
+Successfully installed webrick-1.7.0
+Parsing documentation for webrick-1.7.0
+Done installing documentation for webrick after 0 seconds
+1 gem installed
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ ^C
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ 
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ gem install bundler
+Fetching bundler-2.4.4.gem
+ERROR:  While executing gem ... (Gem::FilePermissionError)
+    You don't have write permissions for the /var/lib/gems/3.0.0 directory.
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ sudo 
+usage: sudo -h | -K | -k | -V
+usage: sudo -v [-ABknS] [-g group] [-h host] [-p prompt] [-u user]
+usage: sudo -l [-ABknS] [-g group] [-h host] [-p prompt] [-U user] [-u user] [command]
+usage: sudo [-ABbEHknPS] [-r role] [-t type] [-C num] [-D directory] [-g group] [-h host] [-p
+            prompt] [-R directory] [-T timeout] [-u user] [VAR=value] [-i|-s] [<command>]
+usage: sudo -e [-ABknS] [-r role] [-t type] [-C num] [-D directory] [-g group] [-h host] [-p prompt]
+            [-R directory] [-T timeout] [-u user] file ...
+ramanujan@ramanujan-HLBS-CM-44:~/docker1701$ sudo su
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# gem install bundler
+Fetching bundler-2.4.4.gem
+Successfully installed bundler-2.4.4
+Parsing documentation for bundler-2.4.4
+Installing ri documentation for bundler-2.4.4
+Done installing documentation for bundler after 0 seconds
+1 gem installed
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# docker run -i -t -p 4242:4000 cultivate/shark
+webrick is not found. You may need to `gem install webrick` to install webrick.
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# ls
+dockerfile
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# vim dockerfile 
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# docker build -t cultivate/shark .
+Sending build context to Docker daemon  2.048kB
+Step 1/6 : FROM ruby:latest
+latest: Pulling from library/ruby
+bbeef03cda1f: Pull complete 
+f049f75f014e: Pull complete 
+56261d0e6b05: Pull complete 
+9bd150679dbd: Pull complete 
+5b282ee9da04: Pull complete 
+69677b07832c: Pull complete 
+313839d2789c: Pull complete 
+9fcdc0b654d6: Pull complete 
+Digest: sha256:f2ec40227806aaab47e928f2e0ea516ab89a21d701848dd25cde2529f7551891
+Status: Downloaded newer image for ruby:latest
+ ---> 1e6b2a26f38d
+Step 2/6 : WORKDIR /docker1701
+ ---> Running in 04870cf1241c
+Removing intermediate container 04870cf1241c
+ ---> fe58530b272a
+Step 3/6 : EXPOSE 4000
+ ---> Running in b39552af9a13
+Removing intermediate container b39552af9a13
+ ---> bc153714e150
+Step 4/6 : RUN apk add --no-cache bash wget
+ ---> Running in 4e30e3104b37
+/bin/sh: 1: apk: not found
+The command '/bin/sh -c apk add --no-cache bash wget' returned a non-zero code: 127
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# vim dockerfile 
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# docker build -t cultivate/shark .
+Sending build context to Docker daemon  2.048kB
+Step 1/6 : FROM ruby:latest
+ ---> 1e6b2a26f38d
+Step 2/6 : WORKDIR /docker1701
+ ---> Using cache
+ ---> fe58530b272a
+Step 3/6 : EXPOSE 4000
+ ---> Using cache
+ ---> bc153714e150
+Step 4/6 : RUN apt add --no-cache bash wget
+ ---> Running in 164ebcb4e712
+E: Command line option --no-cache is not understood in combination with the other options
+The command '/bin/sh -c apt add --no-cache bash wget' returned a non-zero code: 100
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# vim dockerfile 
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# docker build -t cultivate/shark .
+Sending build context to Docker daemon  2.048kB
+Step 1/5 : FROM ruby:latest
+ ---> 1e6b2a26f38d
+Step 2/5 : WORKDIR /docker1701
+ ---> Using cache
+ ---> fe58530b272a
+Step 3/5 : EXPOSE 4000
+ ---> Using cache
+ ---> bc153714e150
+Step 4/5 : RUN wget https://media.giphy.com/media/4a7u0GC5hzdgk/giphy.gif -O shark.gif
+ ---> Running in d6521627d6c8
+--2023-01-17 05:41:24--  https://media.giphy.com/media/4a7u0GC5hzdgk/giphy.gif
+Resolving media.giphy.com (media.giphy.com)... 199.232.194.2, 199.232.198.2
+Connecting to media.giphy.com (media.giphy.com)|199.232.194.2|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 484053 (473K) [image/gif]
+Saving to: ‘shark.gif’
+
+     0K .......... .......... .......... .......... .......... 10%  192K 2s
+    50K .......... .......... .......... .......... .......... 21%  278K 2s
+   100K .......... .......... .......... .......... .......... 31% 1004K 1s
+   150K .......... .......... .......... .......... .......... 42% 1.17M 1s
+   200K .......... .......... .......... .......... .......... 52%  405K 1s
+   250K .......... .......... .......... .......... .......... 63% 1.54M 0s
+   300K .......... .......... .......... .......... .......... 74% 1.81M 0s
+   350K .......... .......... .......... .......... .......... 84% 2.13M 0s
+   400K .......... .......... .......... .......... .......... 95% 2.35M 0s
+   450K .......... .......... ..                              100% 3.64M=0.8s
+
+2023-01-17 05:41:26 (618 KB/s) - ‘shark.gif’ saved [484053/484053]
+
+Removing intermediate container d6521627d6c8
+ ---> 81882b99f8dc
+Step 5/5 : CMD ruby -run -e httpd . -p 4000
+ ---> Running in c187d6ccfb87
+Removing intermediate container c187d6ccfb87
+ ---> 00edca38fce9
+Successfully built 00edca38fce9
+Successfully tagged cultivate/shark:latest
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# docker run -i -t -p 4242:4000 cultivate/shark
+webrick is not found. You may need to `gem install webrick` to install webrick.
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# vim dockerfile 
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# docker build -t cultivate/shark .
+Sending build context to Docker daemon  2.048kB
+Step 1/8 : FROM ruby:3.1.2 AS rails-toolbox
+3.1.2: Pulling from library/ruby
+a8ca11554fce: Pull complete 
+e4e46864aba2: Pull complete 
+c85a0be79bfb: Pull complete 
+195ea6a58ca8: Pull complete 
+157f16ed0a0c: Pull complete 
+3cb3f18bcb19: Pull complete 
+b11759f47e52: Pull complete 
+c4b6058aa7af: Pull complete 
+Digest: sha256:7681a3d37560dbe8ff7d0a38f3ce35971595426f0fe2f5709352d7f7a5679255
+Status: Downloaded newer image for ruby:3.1.2
+ ---> 4ab4ea8547cc
+Step 2/8 : WORKDIR /docker1701
+ ---> Running in 3283c1fd8e23
+Removing intermediate container 3283c1fd8e23
+ ---> 3ccd805c4201
+Step 3/8 : ENV INSTALL_PATH /opt/app
+ ---> Running in 044f4f56abe0
+Removing intermediate container 044f4f56abe0
+ ---> 6f1a5eec5081
+Step 4/8 : RUN mkdir -p $INSTALL_PATH
+ ---> Running in c9c25b0357f7
+Removing intermediate container c9c25b0357f7
+ ---> 5a2752216605
+Step 5/8 : RUN gem install rails bundler
+ ---> Running in 9e0560c6afd5
+Successfully installed zeitwerk-2.6.6
+Successfully installed thor-1.2.1
+Successfully installed method_source-1.0.0
+Successfully installed concurrent-ruby-1.1.10
+Successfully installed tzinfo-2.0.5
+Successfully installed i18n-1.12.0
+Successfully installed activesupport-7.0.4
+Successfully installed nokogiri-1.14.0-x86_64-linux
+Successfully installed crass-1.0.6
+Successfully installed loofah-2.19.1
+Successfully installed rails-html-sanitizer-1.4.4
+Successfully installed rails-dom-testing-2.0.3
+Successfully installed rack-2.2.6
+Successfully installed rack-test-2.0.2
+Successfully installed erubi-1.12.0
+Successfully installed builder-3.2.4
+Successfully installed actionview-7.0.4
+Successfully installed actionpack-7.0.4
+Successfully installed railties-7.0.4
+Successfully installed mini_mime-1.1.2
+Successfully installed marcel-1.0.2
+Successfully installed activemodel-7.0.4
+Successfully installed activerecord-7.0.4
+Successfully installed globalid-1.0.0
+Successfully installed activejob-7.0.4
+Successfully installed activestorage-7.0.4
+Successfully installed actiontext-7.0.4
+Successfully installed mail-2.8.0.1
+Successfully installed actionmailer-7.0.4
+Successfully installed actionmailbox-7.0.4
+Successfully installed websocket-extensions-0.1.5
+Building native extensions. This could take a while...
+Successfully installed websocket-driver-0.7.5
+Building native extensions. This could take a while...
+Successfully installed nio4r-2.5.8
+Successfully installed actioncable-7.0.4
+Successfully installed rails-7.0.4
+Successfully installed bundler-2.4.4
+36 gems installed
+Removing intermediate container 9e0560c6afd5
+ ---> 3613aef6f94e
+Step 6/8 : EXPOSE 4000
+ ---> Running in c78e60a71e16
+Removing intermediate container c78e60a71e16
+ ---> 6c0047801911
+Step 7/8 : RUN wget https://media.giphy.com/media/4a7u0GC5hzdgk/giphy.gif -O shark.gif
+ ---> Running in 0177caea278d
+--2023-01-17 05:45:15--  https://media.giphy.com/media/4a7u0GC5hzdgk/giphy.gif
+Resolving media.giphy.com (media.giphy.com)... 199.232.194.2, 199.232.198.2
+Connecting to media.giphy.com (media.giphy.com)|199.232.194.2|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 484053 (473K) [image/gif]
+Saving to: ‘shark.gif’
+
+     0K .......... .......... .......... .......... .......... 10%  186K 2s
+    50K .......... .......... .......... .......... .......... 21%  258K 2s
+   100K .......... .......... .......... .......... .......... 31%  933K 1s
+   150K .......... .......... .......... .......... .......... 42% 1.08M 1s
+   200K .......... .......... .......... .......... .......... 52%  395K 1s
+   250K .......... .......... .......... .......... .......... 63% 1.43M 0s
+   300K .......... .......... .......... .......... .......... 74% 1.70M 0s
+   350K .......... .......... .......... .......... .......... 84% 1.59M 0s
+   400K .......... .......... .......... .......... .......... 95% 2.44M 0s
+   450K .......... .......... ..                              100% 2.39M=0.8s
+
+2023-01-17 05:45:17 (583 KB/s) - ‘shark.gif’ saved [484053/484053]
+
+Removing intermediate container 0177caea278d
+ ---> e6d2fdb9dd65
+Step 8/8 : CMD ruby -run -e httpd . -p 4000
+ ---> Running in ef7b5de8048f
+Removing intermediate container ef7b5de8048f
+ ---> f007f6c4b71f
+Successfully built f007f6c4b71f
+Successfully tagged cultivate/shark:latest
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# docker run $ docker run -i -t -p 4242:4000 f007f6c4b71f
+docker: invalid reference format.
+See 'docker run --help'.
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# docker run $ docker run -i -t -p 4242:4000 f007f6c4b71f
+docker: invalid reference format.
+See 'docker run --help'.
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701#  docker run -i -t -p 4242:4000 f007f6c4b71f
+webrick is not found. You may need to `gem install webrick` to install webrick.
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# history
+    1  docker pull httpd
+    2  docker exec -it
+    3  docker ps -a
+    4  docker run -it hello-world
+    5  docker ps -a
+    6  docker ps
+    7  docker run
+    8  docker ps -a
+    9  docker pull httpd
+   10  docker exec httpd
+   11  systemctl start docker
+   12  systemctl status docker
+   13  docker ps\
+   14  docker ps
+   15  docker ps -a
+   16  docker run hello-world
+   17  docker ps
+   18  docker run -it ubuntu bash
+   19  docker pull nginx:latest
+   20  docker run -p 8000:80
+   21  docker run -p 8000:80 nginx
+   22  vim /etc/nginx/sites-available/default 
+   23  apy install vim
+   24  apt install vim
+   25  vim /etc/nginx/sites-available/default
+   26  exit
+   27  vim etc/nginx/sites-available/default
+   28  docker ps
+   29  docker exec -it 694f562cdd58 bash
+   30  cd /etc/hosts
+   31  sudo vim /etc/host
+   32  gem install bundler
+   33  docker run -i -t -p 4242:4000 cultivate/shark
+   34  ls
+   35  vim dockerfile 
+   36  docker build -t cultivate/shark .
+   37  vim dockerfile 
+   38* 
+   39  vim dockerfile 
+   40  docker build -t cultivate/shark .
+   41  docker run -i -t -p 4242:4000 cultivate/shark
+   42  vim dockerfile 
+   43  docker build -t cultivate/shark .
+   44  docker run $ docker run -i -t -p 4242:4000 f007f6c4b71f
+   45  history
+root@ramanujan-HLBS-CM-44:/home/ramanujan/docker1701# 
+
