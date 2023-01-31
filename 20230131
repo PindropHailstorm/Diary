@@ -1,0 +1,7 @@
+https://www.baeldung.com/ops/kubernetes-kind
+https://phoenixnap.com/kb/kubernetes-kind
+Setup KinD
+docker pull image
+docker load image 
+# after setting up everything
+kind load docker-image khushichhillar/mydocker:1.0
