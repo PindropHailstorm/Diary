@@ -5,3 +5,353 @@ docker pull image
 docker load image 
 # after setting up everything
 kind load docker-image khushichhillar/mydocker:1.0
+--------------
+DUMP
+n-HLBS-CM-44:~$ sudo apt update
+[sudo] password for ramanujan: 
+Get:1 http://packages.microsoft.com/repos/code stable InRelease [3,023 B]      
+Get:2 https://download.docker.com/linux/ubuntu jammy InRelease [48.9 kB]       
+Get:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]      
+Get:4 http://packages.microsoft.com/repos/code stable/main arm64 Packages [58.6 kB]
+Get:5 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages [12.1 kB]
+Get:6 http://packages.microsoft.com/repos/code stable/main armhf Packages [58.7 kB]
+Hit:7 http://in.archive.ubuntu.com/ubuntu jammy InRelease                      
+Get:8 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [594 kB]
+Get:9 http://packages.microsoft.com/repos/code stable/main amd64 Packages [58.2 kB]
+Get:10 http://in.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]    
+Get:11 http://in.archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB] 
+Get:12 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [851 kB]
+Get:13 http://security.ubuntu.com/ubuntu jammy-security/main i386 Packages [241 kB]
+Get:14 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [125 kB]
+Get:15 http://security.ubuntu.com/ubuntu jammy-security/main amd64 DEP-11 Metadata [41.4 kB]
+Get:16 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [7,796 B]
+Get:17 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [634 kB]
+Get:18 http://security.ubuntu.com/ubuntu jammy-security/universe i386 Packages [487 kB]
+Get:19 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [86.4 kB]
+Get:20 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 DEP-11 Metadata [13.2 kB]
+Get:21 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [11.3 kB]
+Get:22 http://in.archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [429 kB]
+Get:23 http://in.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [189 kB]
+Get:24 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 DEP-11 Metadata [101 kB]
+Get:25 http://in.archive.ubuntu.com/ubuntu jammy-updates/main DEP-11 48x48 Icons [33.0 kB]
+Get:26 http://in.archive.ubuntu.com/ubuntu jammy-updates/main DEP-11 64x64 Icons [51.3 kB]
+Get:27 http://in.archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [13.1 kB]
+Get:28 http://in.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [566 kB]
+Get:29 http://in.archive.ubuntu.com/ubuntu jammy-updates/restricted i386 Packages [25.9 kB]
+Get:30 http://in.archive.ubuntu.com/ubuntu jammy-updates/universe i386 Packages [567 kB]
+Get:31 http://in.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [796 kB]
+Get:32 http://in.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [142 kB]
+Get:33 http://in.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 DEP-11 Metadata [265 kB]
+Get:34 http://in.archive.ubuntu.com/ubuntu jammy-updates/universe DEP-11 48x48 Icons [163 kB]
+Get:35 http://in.archive.ubuntu.com/ubuntu jammy-updates/universe DEP-11 64x64 Icons [248 kB]
+Get:36 http://in.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [15.0 kB]
+Get:37 http://in.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 DEP-11 Metadata [940 B]
+Get:38 http://in.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 DEP-11 Metadata [12.4 kB]
+Fetched 7,274 kB in 12s (622 kB/s)                                             
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+150 packages can be upgraded. Run 'apt list --upgradable' to see them.
+ramanujan@ramanujan-HLBS-CM-44:~$ sudo snap install go --classic
+go 1.19.5 from Michael Hudson-Doyle (mwhudson) installed
+ramanujan@ramanujan-HLBS-CM-44:~$ go get -u sigs.k8s.io/kind
+go: go.mod file not found in current directory or any parent directory.
+	'go get' is no longer supported outside a module.
+	To build and install a command, use 'go install' with a version,
+	like 'go install example.com/cmd@latest'
+	For more information, see https://golang.org/doc/go-get-install-deprecation
+	or run 'go help get' or 'go help install'.
+ramanujan@ramanujan-HLBS-CM-44:~$ go install sigs.k8s.io/kind@v0.17.0 && kind create cluster
+go: downloading sigs.k8s.io/kind v0.17.0
+go: downloading github.com/spf13/pflag v1.0.5
+go: downloading github.com/alessio/shellescape v1.4.1
+go: downloading github.com/spf13/cobra v1.4.0
+go: downloading github.com/pkg/errors v0.9.1
+go: downloading github.com/mattn/go-isatty v0.0.14
+go: downloading golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c
+go: downloading github.com/pelletier/go-toml v1.9.4
+go: downloading github.com/BurntSushi/toml v1.0.0
+go: downloading github.com/evanphx/json-patch/v5 v5.6.0
+go: downloading gopkg.in/yaml.v3 v3.0.1
+go: downloading sigs.k8s.io/yaml v1.3.0
+go: downloading github.com/google/safetext v0.0.0-20220905092116-b49f7bc46da2
+go: downloading gopkg.in/yaml.v2 v2.4.0
+Command 'kind' not found, did you mean:
+  command 'king' from deb king (2.24+dfsg2-1)
+  command 'find' from deb findutils (4.8.0-1ubuntu3)
+  command 'kfind' from deb kfind (4:21.12.3-0ubuntu1)
+  command 'kino' from deb kino (1.3.4+dfsg0-1.1)
+Try: sudo apt install <deb name>
+ramanujan@ramanujan-HLBS-CM-44:~$ kind version
+Command 'kind' not found, did you mean:
+  command 'king' from deb king (2.24+dfsg2-1)
+  command 'kfind' from deb kfind (4:21.12.3-0ubuntu1)
+  command 'find' from deb findutils (4.8.0-1ubuntu3)
+  command 'kino' from deb kino (1.3.4+dfsg0-1.1)
+Try: sudo apt install <deb name>
+ramanujan@ramanujan-HLBS-CM-44:~$ echo gopath
+gopath
+ramanujan@ramanujan-HLBS-CM-44:~$ echo path
+path
+ramanujan@ramanujan-HLBS-CM-44:~$ echo $GOPATH
+echo $PATH
+
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+ramanujan@ramanujan-HLBS-CM-44:~$ kind
+Command 'kind' not found, did you mean:
+  command 'find' from deb findutils (4.8.0-1ubuntu3)
+  command 'kfind' from deb kfind (4:21.12.3-0ubuntu1)
+  command 'king' from deb king (2.24+dfsg2-1)
+  command 'kino' from deb kino (1.3.4+dfsg0-1.1)
+Try: sudo apt install <deb name>
+ramanujan@ramanujan-HLBS-CM-44:~$ curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.17.0/kind-linux-amd64
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    97  100    97    0     0     57      0  0:00:01  0:00:01 --:--:--    57
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+100 6766k  100 6766k    0     0  72737      0  0:01:35  0:01:35 --:--:--  184k
+ramanujan@ramanujan-HLBS-CM-44:~$ chmod +x ./kind
+ramanujan@ramanujan-HLBS-CM-44:~$ sudo mv ./kind /bin/kind
+[sudo] password for ramanujan: 
+ramanujan@ramanujan-HLBS-CM-44:~$ kind
+kind creates and manages local Kubernetes clusters using Docker container 'nodes'
+
+Usage:
+  kind [command]
+
+Available Commands:
+  build       Build one of [node-image]
+  completion  Output shell completion code for the specified shell (bash, zsh or fish)
+  create      Creates one of [cluster]
+  delete      Deletes one of [cluster]
+  export      Exports one of [kubeconfig, logs]
+  get         Gets one of [clusters, nodes, kubeconfig]
+  help        Help about any command
+  load        Loads images into nodes
+  version     Prints the kind CLI version
+
+Flags:
+  -h, --help              help for kind
+      --loglevel string   DEPRECATED: see -v instead
+  -q, --quiet             silence all stderr output
+  -v, --verbosity int32   info log verbosity, higher value produces more output
+      --version           version for kind
+
+Use "kind [command] --help" for more information about a command.
+ramanujan@ramanujan-HLBS-CM-44:~$ kind create cluster
+Creating cluster "kind" ...
+ ✓ Ensuring node image (kindest/node:v1.25.3) 🖼 
+ ✓ Preparing nodes 📦  
+ ✓ Writing configuration 📜 
+ ✓ Starting control-plane 🕹️ 
+ ✓ Installing CNI 🔌 
+ ✓ Installing StorageClass 💾 
+Set kubectl context to "kind-kind"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-kind
+
+Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
+ramanujan@ramanujan-HLBS-CM-44:~$ kind get clusters
+kind
+ramanujan@ramanujan-HLBS-CM-44:~$ kind delete kind
+ERROR: unknown command "kind" for "kind delete"
+ramanujan@ramanujan-HLBS-CM-44:~$ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   138  100   138    0     0    328      0 --:--:-- --:--:-- --:--:--   328
+100 45.7M  100 45.7M    0     0  5379k      0  0:00:08  0:00:08 --:--:-- 5952k
+ramanujan@ramanujan-HLBS-CM-44:~$ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+[sudo] password for ramanujan: 
+ramanujan@ramanujan-HLBS-CM-44:~$ kubectl version --client
+WARNING: This version information is deprecated and will be replaced with the output from kubectl version --short.  Use --output=yaml|json to get the full version.
+Client Version: version.Info{Major:"1", Minor:"26", GitVersion:"v1.26.1", GitCommit:"8f94681cd294aa8cfd3407b8191f6c70214973a4", GitTreeState:"clean", BuildDate:"2023-01-18T15:58:16Z", GoVersion:"go1.19.5", Compiler:"gc", Platform:"linux/amd64"}
+Kustomize Version: v4.5.7
+ramanujan@ramanujan-HLBS-CM-44:~$ kubetcl get nodes
+Command 'kubetcl' not found, did you mean:
+  command 'kubectl' from snap kubectl (1.26.1)
+See 'snap info <snapname>' for additional versions.
+ramanujan@ramanujan-HLBS-CM-44:~$ kubectl get nodes
+NAME                 STATUS   ROLES           AGE   VERSION
+kind-control-plane   Ready    control-plane   11m   v1.25.3
+ramanujan@ramanujan-HLBS-CM-44:~$ docker pull khushichhillar/mydocker:1.0
+1.0: Pulling from khushichhillar/mydocker
+8921db27df28: Already exists 
+1dffd8683127: Pull complete 
+Digest: sha256:c33e69feb04e23441780d5980f8cb91f9df4ba045f8dae8b77621d6743679591
+Status: Downloaded newer image for khushichhillar/mydocker:1.0
+docker.io/khushichhillar/mydocker:1.0
+ramanujan@ramanujan-HLBS-CM-44:~$ docker exec -it kind-control-plane
+"docker exec" requires at least 2 arguments.
+See 'docker exec --help'.
+
+Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+Run a command in a running container
+ramanujan@ramanujan-HLBS-CM-44:~$ docker exec -it kind-control-plane crictl images
+IMAGE                                      TAG                  IMAGE ID            SIZE
+docker.io/kindest/kindnetd                 v20221004-44d545d1   d6e3e26021b60       25.8MB
+docker.io/kindest/local-path-helper        v20220607-9a4d8d2a   d2f902e939cc3       2.86MB
+docker.io/kindest/local-path-provisioner   v0.0.22-kind.0       4c1e997385b8f       17.4MB
+registry.k8s.io/coredns/coredns            v1.9.3               5185b96f0becf       14.8MB
+registry.k8s.io/etcd                       3.5.4-0              a8a176a5d5d69       102MB
+registry.k8s.io/kube-apiserver             v1.25.3              4bc1b1e750e34       76.5MB
+registry.k8s.io/kube-controller-manager    v1.25.3              580dca99efc3b       64.5MB
+registry.k8s.io/kube-proxy                 v1.25.3              86063cd68dfc9       63.3MB
+registry.k8s.io/kube-scheduler             v1.25.3              5225724a11400       51.9MB
+registry.k8s.io/pause                      3.7                  221177c6082a8       311kB
+ramanujan@ramanujan-HLBS-CM-44:~$ kind load docker-image khushichhillar/mydocker:1.0
+Image: "" with ID "sha256:7986371a113b8cbf3d7fdbe015dc955746c83ee38a2dced98b8b1d9298fa53eb" not yet present on node "kind-control-plane", loading...
+ramanujan@ramanujan-HLBS-CM-44:~$ kind load docker-image khushichhillar/mydocker:1.0^C
+ramanujan@ramanujan-HLBS-CM-44:~$ kind load docker-image khushichhillar/mydocker:1.0
+Image: "khushichhillar/mydocker:1.0" with ID "sha256:7986371a113b8cbf3d7fdbe015dc955746c83ee38a2dced98b8b1d9298fa53eb" found to be already present on all nodes.
+ramanujan@ramanujan-HLBS-CM-44:~$ history
+    1  sudo su
+    2  sudo -i
+    3  nano
+    4  %{%
+    5  nano
+    6  nano Q1.lex
+    7  lex Q1.lex
+    8  Q1.lex
+    9  flex-version
+   10  sudo-apt get install flex
+   11  sudo apt-get install flex
+   12  sudo apt-get install bison
+   13  Q1.lex
+   14  sudo apt-get install dosbox
+   15  sudo apt-get install unrar
+   16  sudo apt-get install flex bison
+   17  sudo apt-get update
+   18  sudo apt-get install flex bison
+   19  sudo apt-get install dosbox
+   20  ls
+   21  cd Downloads/
+   22  sha256sum anaconda.s
+   23  sha256sum Anaconda3-2022.10-Linux-x86_64.sh 
+   24  bash Anaconda3-2022.10-Linux-x86_64.sh 
+   25  sudo apt-get remove docker docker-engine docker.io containerd runc~
+   26  sudo apt-get remove docker docker-engine docker.io containerd runc
+   27  ~sudo apt-get update
+   28  sudo apt-get install     ca-certificates     curl     gnupg     lsb-release
+   29  sudo apt-get update
+   30  sudo apt-get install     ca-certificates     curl     gnupg     lsb-release
+   31  sudo mkdir -p /etc/apt/keyrings
+   32  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+   33  sudo mkdir -p /etc/apt/keyrings
+   34  echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+   35    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   36  sudo apt update
+   37  sudo apt install -y     apt-transport-https     ca-certificates     curl     gnupg     lsb-release     jq
+   38  sudo apt update
+   39  sudo apt install -y     apt-transport-https     ca-certificates     curl     gnupg     lsb-release     jq
+   40  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg~
+   41  sudo apt update
+   42  sudo apt install -y docker-ce docker-ce-cli containerd.io
+   43  sudo mkdir -p /etc/apt/keyrings
+   44  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+   45  echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+   46    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   47  sudo apt-get update
+   48  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+   49  sudo apt-get update
+   50  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+   51  sudo docker run hello-world
+   52  sudo usermod -aG docker $USER
+   53  curl -sL https://github.com/ShubhamTatvamasi/docker-install/raw/master/docker-install.sh | bash
+   54  sudo apt update
+   55  sudo apt install -y     apt-transport-https     ca-certificates     curl     gnupg     lsb-release     jq
+   56  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+   57  echo   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+   58    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   59  sudo apt update
+   60  sudo apt install -y docker-ce docker-ce-cli containerd.io
+   61  sudo usermod -aG docker $USER
+   62  COMPOSE_VERSION=$(curl -s "https://api.github.com/repos/docker/compose/tags" | jq -r '.[0].name')
+   63  sudo curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)"   -o /usr/local/bin/docker-compose
+   64  sudo chmod +x /usr/local/bin/docker-compose
+   65  sodu docker pull apacha2
+   66  sudo docker pull apacha2
+   67  docker pull hello-world
+   68  sudo usermod -aG docker $USER
+   69  COMPOSE_VERSION=$(curl -s "https://api.github.com/repos/docker/compose/tags" | jq -r '.[0].name')
+   70  sudo curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)"   -o /usr/local/bin/docker-compose
+   71  sudo chmod +x /usr/local/bin/docker-compose
+   72  docker pull hello-world
+   73  sudo su
+   74  docker
+   75  sudo su
+   76  docker ps
+   77  sudo su
+   78  cd home/
+   79  cd /home
+   80  cd ramanujan/index
+   81  cd ramanujan/nginx-html/
+   82  code.
+   83  code .
+   84  docker run nginix
+   85  docker run nginx
+   86  clear
+   87  sudo su
+   88  claer
+   89  docker images
+   90  docker pull hello-world
+   91  docker pull alpine
+   92  docker images
+   93  sudo _su
+   94  sudo -su
+   95  mkdir
+   96  ls
+   97  docker su
+   98  sudo su
+   99  cd 
+  100  mkdir Docker
+  101  cd Docker
+  102  touch Dockerfile
+  103  vim Dockerfile
+  104  docker images
+  105  ls
+  106  dockerfile
+  107  docker ls
+  108  ls
+  109  docker build -t dockerfile
+  110  docker images
+  111  docker ps
+  112  ls
+  113  docker run -i -t -p 4242:4000 Dockerfile
+  114  docker run -i -t -p 9090:4000 alpine
+  115  cd
+  116  mkdir dockerfiles
+  117  cd dockerfiles
+  118  touch dockerfiles
+  119  vim dockerfiles
+  120  run docker
+  121  docker
+  122  sudo apt update
+  123  sudo snap install go --classic
+  124  go get -u sigs.k8s.io/kind
+  125  go install sigs.k8s.io/kind@v0.17.0 && kind create cluster
+  126  kind version
+  127  echo gopath
+  128  echo path
+  129  echo $GOPATH
+  130  echo $PATH
+  131  kind
+  132  curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.17.0/kind-linux-amd64
+  133  chmod +x ./kind
+  134  sudo mv ./kind /bin/kind
+  135  kind
+  136  kind create cluster
+  137  kind get clusters
+  138  kind delete kind
+  139  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+  140  sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+  141  kubectl version --client
+  142  kubetcl get nodes
+  143  kubectl get nodes
+  144* docker pull khushichhillar/mydocker:1.0
+  145  docker exec -it kind-control-plane
+  146  docker exec -it kind-control-plane crictl images
+  147  kind load docker-image khushichhillar/mydocker:1.0
+  148  history
+ramanujan@ramanujan-HLBS-CM-44:~$ 
